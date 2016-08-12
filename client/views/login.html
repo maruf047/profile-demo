@@ -1,0 +1,16 @@
+<div ng-controller="logInController">
+
+    <h1>Sing In</h1>
+
+    <script type="text/javascript" src="/js/controllers/login-controller.js"></script>
+</div>
+<form ng-submit="authenticate()">
+    <input type="text" placeholder="Username" ng-model="username">
+    <br>
+    <br>
+    <input type="text" placeholder="Password" ng-model="password">
+    <br>
+    <br>
+    <button type="submit">Log in</button>
+    <a href="/registration">Registration</a>
+</form>

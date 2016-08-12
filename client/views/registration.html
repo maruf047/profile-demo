@@ -1,0 +1,29 @@
+<div>
+    <h1>Registration</h1>
+    <br>
+    <form ng-submit="registerPerson()">
+        <input type="text" placeholder="First Name" ng-model="firstName" required>
+        <input type="text" placeholder="Second Name" ng-model="secondName" required>
+        <br>
+        <br>
+        <input type="date" ng-model="dateOfBirthString">
+        <br>
+        <br>
+        <!-- -->
+        <select name="sexSelect" ng-model="sex" ng-options="option.gender for option in Sexes" ng-change="GetValue()"
+                required>
+        </select>
+        <br>
+        <br>
+        <textarea type="text" placeholder="About Yourself" ng-model="aboutYourself"></textarea>
+        <br>
+        <br>
+        <input type="text" placeholder="Username" ng-model="username" required>
+        <br>
+        <br>
+        <input type="password" placeholder="Password" ng-model="password" required>
+        <br>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "ProfileDemo",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "express-controller": "^0.2.9",
+    //"express-controller-routes": "^1.0.6",
+    "mongoose": "^4.5.8"
+  }
+}
