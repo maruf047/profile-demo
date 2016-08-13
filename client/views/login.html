@@ -1,16 +1,17 @@
-<div ng-controller="logInController">
-
-    <h1>Sing In</h1>
-
-    <script type="text/javascript" src="/js/controllers/login-controller.js"></script>
+<div ng-style="{'width':'450px', 'height':'270px', 'margin-top':'10px', 'margin-left':'30px','border':'solid 3px black'}" ng-controller="logInController">
+    <div >
+        <h1 ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px'}">Sing In</h1>
+        <!--<script type="text/javascript" src="/js/controllers/login-controller.js"></script>-->
+        <form ng-submit="authenticate()">
+            <input ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}" type="text" placeholder="Username" ng-model="username" required>
+            <br>
+            <br>
+            <input ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}" type="password" placeholder="Password" ng-model="password" required>
+            <br>
+            <br>
+            <button ng-style="{'width':'100px', 'height':'35px', 'margin-top':'10px', 'margin-left':'100px','border':'solid 3px black', 'text-color':'#5500bb'}" type="submit">Log in</button>
+            <a ng-style="{'width':'100px', 'height':'30px', 'margin-top':'10px', 'margin-left':'30px'}" href="/registration">Registration</a>
+            <a ng-style="{'width':'100px', 'height':'30px', 'margin-top':'10px', 'margin-left':'30px'}" href="/home">Home</a>
+        </form>
+    </div>
 </div>
-<form ng-submit="authenticate()">
-    <input type="text" placeholder="Username" ng-model="username">
-    <br>
-    <br>
-    <input type="text" placeholder="Password" ng-model="password">
-    <br>
-    <br>
-    <button type="submit">Log in</button>
-    <a href="/registration">Registration</a>
-</form>

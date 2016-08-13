@@ -3,7 +3,7 @@
  */
 app.controller('registrationController', ['$scope', '$resource', 'dateFilter', function ($scope, $resource, dateFilter) {
 
-    var Person = $resource('/api/person-register');
+    var PersonApi = $resource('/api/person-register');
 
     $scope.date = new Date();
 
@@ -26,7 +26,7 @@ app.controller('registrationController', ['$scope', '$resource', 'dateFilter', f
 
     $scope.registerPerson = function () {
 
-        var person = new Person();
+        var person = new PersonApi();
         person.name = $scope.firstName + " " + $scope.secondName;
         person.date = $scope.dateString;
         person.sex = $scope.sex.gender;
@@ -36,6 +36,7 @@ app.controller('registrationController', ['$scope', '$resource', 'dateFilter', f
         console.log(person);
         person.$save(function (result) {
             console.log(result.body);
+            //res.render('/login');
         });
     }
 }]);

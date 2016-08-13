@@ -13,7 +13,7 @@ app.config(['$routeProvider', '$locationProvider', function ($routeProvider, $lo
         templateUrl: '/views/login.html',
         controller: 'logInController'
     }).when('/home', {
-        templateUrl: '/views/home',
+        templateUrl: '/views/home.html',
         controller: 'homeController'
     }).otherwise({
         redirectTo: '/login'
