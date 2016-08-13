@@ -1,7 +1,7 @@
 /**
  * Created by GODFATHER on 11-08-16.
  */
-app.controller('registrationController', ['$scope', '$resource', 'dateFilter', function ($scope, $resource, dateFilter) {
+app.controller('registrationController', ['$scope', '$resource', '$window', 'dateFilter', function ($scope, $resource, $window, dateFilter) {
 
     var PersonApi = $resource('/api/person-register');
 
@@ -35,8 +35,8 @@ app.controller('registrationController', ['$scope', '$resource', 'dateFilter', f
         person.passWord = $scope.password;
         console.log(person);
         person.$save(function (result) {
-            console.log(result.body);
-            //res.render('/login');
+            console.log(result.userName);
+            $window.location.href = '/login';
         });
     }
 }]);

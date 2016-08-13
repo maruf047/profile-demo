@@ -6,6 +6,6 @@ app.controller('homeController', ['$scope', '$resource', function ($scope, $reso
     var ProfileApi = $resource('/api/get-profile');
 
     ProfileApi.query(function (result) {
-        console.log(result);
+        console.log(result[0].userName);
     })
 }]);

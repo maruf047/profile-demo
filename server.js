@@ -33,7 +33,7 @@ router.get('/', function (req, res) {
 
 router.get('/api/get-profile', homeController.getProfile);
 router.get('/api/login', loginController.authenticate);
-router.get('/api/person-register', registrationController.getAllData);
+// router.get('/api/person-register', registrationController.getAllData);
 router.post('/api/person-register', registrationController.registerPerson);
 
 app.listen(3000, function () {

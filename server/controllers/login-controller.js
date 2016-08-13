@@ -23,9 +23,12 @@ module.exports.authenticate = function (req, res) {
         }
         console.log("DB returned: ");
         console.log(results[0].passWord);
+        console.log(req.query.passWord);
         //TODO handle status according to login and redirect, take help from Shamim vai
         if (results[0].passWord == req.query.passWord) {
-            return res.send(200, results);
+            // res.send(200, results);
+            console.log("pw matched:");
+            res.status(200).json(results);
         }
         // res.json(results);
     });

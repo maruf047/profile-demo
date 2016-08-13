@@ -11,10 +11,10 @@ app.controller('logInController', ['$scope', '$resource', function ($scope, $res
 
     $scope.authenticate = function () {
 
-        var authenticationInformation = new AuthenticationInformation();
-        authenticationInformation.userName = $scope.username;
-        authenticationInformation.passWord = $scope.password;
-        console.log(authenticationInformation);
+        var person = new AuthenticationInformation();
+        person.userName = $scope.username;
+        person.passWord = $scope.password;
+        console.log(person);
         //
         // authenticationInformation.$save(function (result) {
         //     console.log(result.body);
@@ -26,8 +26,10 @@ app.controller('logInController', ['$scope', '$resource', function ($scope, $res
         // });
 
         //
-        AuthenticationInformation.query({'userName': 'bender', 'passWord': '123456'}, function (status, result) {
-            console.log(result);
-        })
+        AuthenticationInformation.query(person, function (result) {
+            console.log("Log in completed:");
+            //console.log(result.statusCode);
+            console.log(result[0].passWord);
+        })//.$promise.catch()
     }
 }]);
