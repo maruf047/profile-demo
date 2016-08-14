@@ -1,13 +1,13 @@
-<div>
-    <h1>Home</h1>
-    <!--<h1>{{fullname}}</h1>-->
-    <!--<br>-->
-    <!--<br>-->
-    <!--<p>{{aboutSelf}}</p>-->
-    <!--<br>-->
-    <!--<br>-->
-    <!--<p>Date of Birth: {{dateOfBirth}}</p>-->
-    <!--<br>-->
-    <!--<br>-->
-    <!--<p>Sex: {{sex}}</p>-->
+<div ng-style="{'width':'600px', 'height':'400px', 'margin-top':'10px', 'margin-left':'30px','border':'solid 3px black'}">
+    <button ng-click="logout()"
+            ng-style="{'width':'100px', 'height':'35px', 'margin-top':'10px', 'margin-left':'490px','border':'solid 3px black', 'color':'black'}">
+        Log Out
+    </button>
+    <h1 ng-style="{'width':'500px', 'height':'30px', 'margin-top':'30px', 'margin-left':'100px'}">{{fullname}}</h1>
+    <br>
+    <h2 ng-style="{'width':'500px', 'height':'30px', 'margin-top':'10px', 'margin-left':'100px'}">Date of Birth:
+        {{dateOfBirth}}</h2>
+    <h2 ng-style="{'width':'500px', 'height':'30px', 'margin-top':'10px', 'margin-left':'100px'}">Sex: {{sex}}</h2>
+    <h4 ng-style="{'width':'500px', 'height':'60px', 'margin-top':'10px', 'margin-left':'100px'}">About:
+        {{aboutSelf}}</h4>
 </div>

@@ -1,7 +1,7 @@
 /**
  * Created by GODFATHER on 11-08-16.
  */
-app.controller('registrationController', ['$scope', '$resource', '$window', 'dateFilter', function ($scope, $resource, $window, dateFilter) {
+app.controller('registrationController', ['$scope', '$resource', '$location', '$timeout', 'dateFilter', function ($scope, $resource, $location, $timeout, dateFilter) {
 
     var PersonApi = $resource('/api/person-register');
 
@@ -28,15 +28,37 @@ app.controller('registrationController', ['$scope', '$resource', '$window', 'dat
 
         var person = new PersonApi();
         person.name = $scope.firstName + " " + $scope.secondName;
-        person.date = $scope.dateString;
+        console.log($scope.dateString);
+        person.dateOfBirth = $scope.dateString;
         person.sex = $scope.sex.gender;
         person.aboutSelf = $scope.aboutYourself;
         person.userName = $scope.username;
         person.passWord = $scope.password;
         console.log(person);
-        person.$save(function (result) {
-            console.log(result.userName);
-            $window.location.href = '/login';
+        person.$save(function (results) {
+            console.log(results.message);
+            if (results.status == 201) {
+                $scope.customStyle = {
+                    "width": "300px",
+                    "height": "30px",
+                    "margin-top": "10px",
+                    "margin-left": "100px",
+                    "color": "green"
+                };
+                $scope.message = results.message;
+                $timeout(function () {
+                    $location.url('/login');
+                }, 3000);
+            } else {
+                $scope.customStyle = {
+                    "width": "300px",
+                    "height": "30px",
+                    "margin-top": "10px",
+                    "margin-left": "100px",
+                    "color": "red"
+                };
+                $scope.message = results.message;
+            }
         });
     }
 }]);

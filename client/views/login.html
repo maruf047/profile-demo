@@ -1,4 +1,4 @@
-<div ng-style="{'width':'450px', 'height':'270px', 'margin-top':'10px', 'margin-left':'30px','border':'solid 3px black'}"
+<div ng-style="{'width':'450px', 'height':'310px', 'margin-top':'10px', 'margin-left':'30px','border':'solid 3px black'}"
      ng-controller="logInController">
     <div>
         <h1 ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px'}">Sing In</h1>
@@ -12,12 +12,14 @@
                    type="password" placeholder="Password" ng-model="password" required>
             <br>
             <br>
-            <button ng-style="{'width':'100px', 'height':'35px', 'margin-top':'10px', 'margin-left':'100px','border':'solid 3px black', 'text-color':'#5500bb'}"
+            <button ng-style="{'width':'100px', 'height':'35px', 'margin-top':'10px', 'margin-left':'100px','border':'solid 3px black', 'color':'black'}"
                     type="submit">Log in
             </button>
             <a ng-style="{'width':'100px', 'height':'30px', 'margin-top':'10px', 'margin-left':'30px'}"
                href="/registration">Registration</a>
-            <a ng-style="{'width':'100px', 'height':'30px', 'margin-top':'10px', 'margin-left':'30px'}" href="/home">Home</a>
+            <br>
+            <p ng-style="{'width':'300px', 'height':'30px', 'margin-top':'10px', 'margin-left':'100px', 'color':'red'}">
+                {{errorMessage}}</p>
         </form>
     </div>
 </div>

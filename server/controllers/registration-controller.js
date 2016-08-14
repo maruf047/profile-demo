@@ -11,26 +11,20 @@ module.exports.registerPerson = function (req, res) {
 
     Person.count({'userName': req.body.userName}, function (err, result) {
         if (err) {
-            return;
+            return res.json({'status': '401', 'message': 'Could not complete registration'});
         }
-        if (result > 0)console.log("user exists!");
+        if (result > 0) {
+            console.log("user exists!");
+            res.json({'status': '401', 'message': 'User already exists.'});
+        }
         else {
             person.save(function (err, result) {
-                //if (success.state == 'success')console.log("success");
-
                 console.log("Callback: ");
                 console.log(result.userName);
 
-                if (err) res.send(500, err);
-                else res.send(200, result);
+                if (err) res.json({'status': '401', 'message': 'Could not complete registration'});
+                else res.json({'status': '201', 'message': 'Registration Successful'});
             });
         }
     });
 };
-
-// module.exports.getAllData = function (req, res) {
-//     Person.find({}, function (err, results) {
-//         console.log(results.body);
-//         res.json(results);
-//     })
-// };

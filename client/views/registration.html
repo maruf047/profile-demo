@@ -1,29 +1,44 @@
-<div>
-    <h1>Registration</h1>
+<div ng-style="{'width':'450px', 'height':'680px', 'margin-top':'10px', 'margin-left':'30px','border':'solid 3px black'}">
+    <h1 ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px'}">Registration</h1>
     <br>
     <form ng-submit="registerPerson()">
-        <input type="text" placeholder="First Name" ng-model="firstName" required>
-        <input type="text" placeholder="Second Name" ng-model="secondName" required>
+        <input ng-maxlength="30" ng-style="{'width':'245px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+               type="text" placeholder="First Name" ng-model="firstName" required>
+        <br>
+        <input ng-maxlength="30" ng-style="{'width':'245px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+               type="text" placeholder="Second Name" ng-model="secondName" required>
         <br>
         <br>
-        <input type="date" ng-model="dateOfBirthString">
+        <input ng-style="{'width':'245px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+               type="date" ng-model="dateOfBirthString">
         <br>
         <br>
         <!-- -->
-        <select name="sexSelect" ng-model="sex" ng-options="option.gender for option in Sexes" ng-change="GetValue()"
+        <select ng-style="{'width':'260px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+                name="sexSelect" ng-model="sex" ng-options="option.gender for option in Sexes" ng-change="GetValue()"
                 required>
         </select>
         <br>
         <br>
-        <textarea type="text" placeholder="About Yourself" ng-model="aboutYourself"></textarea>
+        <textarea
+                ng-style="{'width':'245px', 'height':'80px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+                type="text" placeholder="About Yourself" ng-model="aboutYourself"></textarea>
         <br>
         <br>
-        <input type="text" placeholder="Username" ng-model="username" required>
+        <input ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+               type="text" placeholder="Username" ng-model="username" required>
         <br>
         <br>
-        <input type="password" placeholder="Password" ng-model="password" required>
+        <input ng-style="{'width':'250px', 'height':'30px','margin-left':'100px', 'margin-top':'10px', 'border':'solid 3px black','padding-left':'10px'}"
+               type="password" placeholder="Password" ng-model="password" required>
         <br>
         <br>
-        <button type="submit">Register</button>
+        <button ng-style="{'width':'100px', 'height':'35px', 'margin-top':'10px', 'margin-left':'250px','border':'solid 3px black', 'color':'black'}"
+                type="submit">
+            Register
+        </button>
+        <br>
+        <p ng-style="customStyle">
+            {{message}}</p>
     </form>
 </div>

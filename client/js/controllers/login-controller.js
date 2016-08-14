@@ -1,35 +1,26 @@
 /**
  * Created by GODFATHER on 11-08-16.
  */
-app.controller('logInController', ['$scope', '$resource', function ($scope, $resource) {
+app.controller('logInController', ['$scope', '$resource', '$location', '$routeParams', function ($scope, $resource, $location, $routeParams) {
 
     var AuthenticationInformation = $resource('/api/login');
 
-    // AuthenticationInformation.query(function (results) {
-    //     console.log(results.body);
-    // });
-
     $scope.authenticate = function () {
 
-        var person = new AuthenticationInformation();
-        person.userName = $scope.username;
-        person.passWord = $scope.password;
-        console.log(person);
-        //
-        // authenticationInformation.$save(function (result) {
-        //     console.log(result.body);
-        // });
+        var auhtenticationInformation = new AuthenticationInformation();
+        auhtenticationInformation.userName = $scope.username;
+        auhtenticationInformation.passWord = $scope.password;
+        console.log(auhtenticationInformation);
 
-        // authenticationInformation.$query(authenticationInformation,function (err, result) {
-        //     console.log("Client Side: ");
-        //     console.log(result);
-        // });
-
-        //
-        AuthenticationInformation.query(person, function (result) {
-            console.log("Log in completed:");
-            //console.log(result.statusCode);
-            console.log(result[0].passWord);
-        })//.$promise.catch()
+        AuthenticationInformation.query(auhtenticationInformation, function (result) {
+            console.log(result);
+            if (result[0].status == 200) {
+                console.log(result[0].userName);
+                $routeParams.userName = result[0].userName;
+                $location.url('/home/' + $routeParams.userName);
+            }else{
+                $scope.errorMessage = result[0].message;
+            }
+        });
     }
 }]);

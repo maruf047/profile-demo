@@ -8,33 +8,25 @@ var AuthenticationInformation = require('../models/person');
 
 module.exports.authenticate = function (req, res) {
     console.log("authentication req: ");
-    console.log(req.query.userName);
-
-    // AuthenticationInformation.find({}, function (err, result) {
-    //     console.log("DB returned: ");
-    //     console.log(result);
-    //     res.json(result);
-    // });
-
-    AuthenticationInformation.find({'userName': req.query.userName}, {'passWord': 1}, function (err, results) {
-        if (err != null) {
-            console.log(err.body);
-            return res.send(500, err);
+    var params = {'userName': req.query.userName};
+    console.log(params);
+    AuthenticationInformation.count(params, function (err, result) {
+        if (err) {
+            return res.json([{'status': '401', 'message': 'Error occurred, Please try again!'}]);
         }
-        console.log("DB returned: ");
-        console.log(results[0].passWord);
-        console.log(req.query.passWord);
-        //TODO handle status according to login and redirect, take help from Shamim vai
-        if (results[0].passWord == req.query.passWord) {
-            // res.send(200, results);
-            console.log("pw matched:");
-            res.status(200).json(results);
-        }
-        // res.json(results);
+        console.log(result);
+        if (result == 0) return res.json([{'status': '401', 'message': 'No such user!'}]);
+        AuthenticationInformation.find({'userName': req.query.userName}, {'passWord': 1}, function (err, results) {
+            if (err != null) {
+                console.log(err.body);
+                res.json([{'status': '401', 'message': err.body}]);
+            }
+            if (req.query.passWord == results[0].passWord) {
+                console.log("pw matched");
+                res.json([{'status': '200', 'userName': req.query.userName}]);
+            } else {
+                res.json([{'status': '401', 'message': 'Your credintials did not match!'}]);
+            }
+        });
     });
-
-    // AuthenticationInformation.find({}, function (err, results) {
-    //     console.log(results.body);
-    //     res.json(results);
-    // })
 };
