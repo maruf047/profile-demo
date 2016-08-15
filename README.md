@@ -1,6 +1,6 @@
 # profile-demo
 
-This is a demo version a authentication system (in progress)
+This is a demo version of a authentication system (in progress)
 
 To run this project you will need NodeJs, MongoDB, ExpressJS & AngularJS.
 
