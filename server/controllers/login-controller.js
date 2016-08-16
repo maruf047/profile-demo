@@ -23,6 +23,8 @@ module.exports.authenticate = function (req, res) {
             }
             if (req.query.passWord == results[0].passWord) {
                 console.log("pw matched");
+                var session = req.session;
+                session.name = req.query.userName;
                 res.json([{'status': '200', 'userName': req.query.userName}]);
             } else {
                 res.json([{'status': '401', 'message': 'Your credintials did not match!'}]);

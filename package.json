@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
     "express": "^4.14.0",
     "express-controller": "^0.2.9",
+    "express-session": "^1.14.0",
     "mongoose": "^4.5.8",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"

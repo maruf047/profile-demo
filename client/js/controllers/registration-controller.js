@@ -48,7 +48,7 @@ app.controller('registrationController', ['$scope', '$resource', '$location', '$
                 $scope.message = results.message;
                 $timeout(function () {
                     $location.url('/login');
-                }, 3000);
+                }, 1500);
             } else {
                 $scope.customStyle = {
                     "width": "300px",

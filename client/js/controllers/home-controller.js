@@ -4,7 +4,8 @@
 app.controller('homeController', ['$scope', '$resource', '$location', '$routeParams', function ($scope, $resource, $location, $routeParams) {
 
     var ProfileApi = $resource('/api/get-profile');
-
+    // console.log(session.name);
+    // && session.name == $routeParams.userName
     if ($routeParams.userName != null) {
         var profile = new ProfileApi();
         profile.userName = $routeParams.userName;
