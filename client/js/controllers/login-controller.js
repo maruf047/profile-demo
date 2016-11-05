@@ -12,14 +12,14 @@ app.controller('logInController', ['$scope', '$resource', '$location', '$routePa
         auhtenticationInformation.passWord = $scope.password;
         console.log(auhtenticationInformation);
 
-        AuthenticationInformation.query(auhtenticationInformation, function (result) {
+        AuthenticationInformation.save(auhtenticationInformation, function (result) {
             console.log(result);
-            if (result[0].status == 200) {
-                console.log(result[0].userName);
-                $routeParams.userName = result[0].userName;
+            if (result.status == 200) {
+                console.log(result.userName);
+                $routeParams.userName = result.userName;
                 $location.url('/home/' + $routeParams.userName).replace();
-            }else{
-                $scope.errorMessage = result[0].message;
+            } else {
+                $scope.errorMessage = result.message;
             }
         });
     }

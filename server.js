@@ -8,7 +8,7 @@ app = express();
 var router = express.Router();
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/profile-demo');
+mongoose.connect('mongodb://127.0.0.1:27017/profile-demo');
 require('./server/models/person');
 
 app.use(expressSession({resave: true, saveUninitialized: true, secret: '123456', cookie: { maxAge: 60000 }}));
@@ -36,7 +36,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/api/get-profile', homeController.getProfile);
-router.get('/api/login', loginController.authenticate);
+router.post('/api/login', loginController.authenticate);
 router.post('/api/person-register', registrationController.registerPerson);
 
 app.listen(3000, function () {
